@@ -1,0 +1,103 @@
+---
+// src/components/Ecosystem.astro
+---
+
+<section class="py-24 bg-bertu-orange overflow-hidden">
+  <div class="text-left md:text-center">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="donate-headline text-[14vw] md:text-[11vw] font-display font-black leading-[0.85] tracking-tighter text-white flex flex-wrap md:flex-nowrap items-center justify-center gap-4">
+        
+        <span class="reveal-container">
+          <span class="reveal-item">Donate</span>
+        </span>
+
+        <span class="reveal-container">
+          <span class="reveal-item inline-block w-[1.2em] h-[1.2em] overflow-hidden bg-bertu-black shadow-2xl shrink-0">
+            <img 
+              src="/src/assets/typo.webp" 
+              class="w-full h-full object-cover opacity-90"
+              alt="Community Work"
+            />
+          </span>
+        </span>
+
+        <span class="reveal-container">
+          <span class="reveal-item">Today</span>
+        </span>
+      </h2>
+    </div>
+  </div>
+
+  <div class="mt-16 max-w-3xl mx-auto md:text-center space-y-10 px-6">
+    <p class="text-2xl md:text-4xl text-white font-sans font-medium leading-tight tracking-tight">
+      We need your help to turn hope into action—to inspire, empower, and connect people to change lives.
+    </p>
+    
+    <div class="pt-4">
+      <a
+        class="donate-trigger cursor-pointer inline-block bg-white text-bertu-orange text-xl md:text-2xl font-bold px-12 py-6 rounded-xl hover:bg-bertu-black hover:text-white transition-all shadow-xl"
+      >
+        Donate
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Keep the heavy branding */
+  h2 {
+    font-stretch: condensed;
+  }
+
+  /* The "Curtain" / Mask */
+  .reveal-container {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+
+  /* The actual content that slides up */
+  .reveal-item {
+    display: inline-block;
+    transform: translateY(110%);
+    transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1);
+    will-change: transform;
+  }
+
+  /* Reveal Trigger */
+  .donate-headline.active .reveal-item {
+    transform: translateY(0);
+  }
+
+  /* Staggering the reveal */
+  .reveal-container:nth-child(2) .reveal-item {
+    transition-delay: 0.1s;
+  }
+  .reveal-container:nth-child(3) .reveal-item {
+    transition-delay: 0.2s;
+  }
+</style>
+
+<script>
+  function initEcosystemReveal() {
+    const observerOptions = {
+      threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const target = document.querySelector('.donate-headline');
+    if (target) observer.observe(target);
+  }
+
+  // Support for initial load and Astro View Transitions
+  initEcosystemReveal();
+  document.addEventListener('astro:after-swap', initEcosystemReveal);
+</script>

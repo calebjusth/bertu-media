@@ -1,0 +1,243 @@
+---
+// src/components/Works.astro
+---
+
+<section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto overflow-hidden">
+  
+  <div class="mb-32">
+    <h2 class="mission-text font-display text-4xl md:text-4xl lg:text-5xl leading-[1.1] tracking-tighter text-bertu-black max-w-5xl">
+      <span class="blur-word">Our</span> 
+      <span class="blur-word">mission</span> 
+      <span class="blur-word">is</span> 
+      <span class="blur-word">to</span> 
+      <span class="blur-word text-bertu-orange italic">be the voice</span> 
+      <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=60&w=100" class="inline-block w-16 md:w-24 h-10 md:h-14 object-cover rounded-full mx-2 align-middle border-2 border-bertu-orange/20 blur-word" alt="Compassion" />
+      <span class="blur-word">for the forgotten,</span> 
+      <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=60&w=100" class="inline-block w-16 md:w-24 h-10 md:h-14 object-cover rounded-full mx-2 align-middle border-2 border-bertu-orange/20 blur-word" alt="Camera" />
+      <span class="blur-word">using</span> 
+      <span class="blur-word">media</span> 
+      <span class="blur-word">to</span> 
+      <span class="blur-word">bridge</span> 
+      <span class="blur-word">the gap</span> 
+      <span class="blur-word">between</span> 
+      <span class="blur-word">suffering</span> 
+      <span class="blur-word">and</span> 
+      <span class="inline-flex items-center justify-center w-12 md:w-16 h-12 md:h-16 bg-bertu-orange text-bertu-cream rounded-full mx-2 align-middle">
+        <i class="fa-solid fa-hand-holding-heart text-xl md:text-4xl"></i>
+      </span>
+      <span class="blur-word">collective</span> 
+      <span class="blur-word">community</span> 
+      <span class="blur-word">action.</span>
+    </h2>
+    
+    <a href="/AboutUs" class="inline-flex items-center gap-2 mt-10 font-sans font-bold text-bertu-orange hover:gap-4 transition-all">
+      Discover our impact stories <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6 auto-rows-[300px]">
+    
+    <div class="reveal-card md:col-span-4 lg:col-span-4 row-span-2 group relative overflow-hidden rounded-3xl bg-bertu-black">
+      <img src="./src/assets/medical.jpg" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" alt="Life-Saving Media" />
+      <div class="absolute inset-0 bg-gradient-to-t from-bertu-black via-transparent to-transparent p-8 flex flex-col justify-end">
+        <span class="text-bertu-orange font-bold text-xs tracking-widest mb-2">Life-Saving Advocacy</span>
+        <h3 class="text-bertu-cream text-3xl md:text-4xl mb-4">Medical Fundraising</h3>
+        <p class="text-bertu-cream/60 max-w-sm mb-6 font-sans">Leveraging our platform to raise millions for critical surgeries, from kidney transplants to cancer treatments for the underserved.</p>
+        <button class="btn-primary py-3 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 bg-bertu-orange text-white px-6 rounded-xl">View Impact</button>
+      </div>
+    </div>
+
+    <div class="reveal-card md:col-span-2 lg:col-span-2 group relative overflow-hidden rounded-3xl bg-bertu-orange">
+      <div class="absolute inset-0 p-8 flex flex-col justify-between text-bertu-cream">
+        <i class="fa-solid fa-person-cane text-4xl opacity-20"></i>
+        <div>
+          <h3 class="text-2xl font-display mb-2">Dignity for Seniors</h3>
+          <p class="text-sm opacity-80 font-sans">Ending the "hunger for connection" by supporting elders living in isolation and health crisis.</p>
+        </div>
+      </div>
+      <div class="absolute inset-0 bg-bertu-black opacity-0 group-hover:opacity-90 transition-opacity flex items-center justify-center">
+         <button class="border-2 border-bertu-orange text-bertu-orange px-6 py-2 rounded-full font-bold">Learn More</button>
+      </div>
+    </div>
+
+    <div class="reveal-card md:col-span-2 lg:col-span-2 row-span-1 md:row-span-2 group relative overflow-hidden rounded-3xl">
+      <img src="./src/assets/women.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="Empowerment" />
+      <div class="absolute inset-0 bg-bertu-black/40 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <div class="absolute inset-0 p-8 flex flex-col justify-end">
+        <h3 class="text-bertu-cream text-2xl mb-2">Women's Empowerment</h3>
+        <p class="text-bertu-cream/70 text-sm mb-4">Supporting survivors of domestic trauma to rebuild their lives and small businesses.</p>
+        <button class="text-bertu-cream font-bold text-xs border-b border-bertu-orange pb-1 w-fit opacity-0 group-hover:opacity-100 transition-all delay-100">See Campaign</button>
+      </div>
+    </div>
+
+    <div class="reveal-card md:col-span-4 lg:col-span-4 group relative overflow-hidden rounded-3xl bg-bertu-cream border border-bertu-black/5">
+      <div class="absolute inset-0 p-8 flex flex-col md:flex-row items-center gap-8">
+        <div class="flex-1">
+            <span class="text-bertu-orange font-bold text-[10px] tracking-widest">Digital Journalism</span>
+            <h3 class="text-3xl font-display mt-2 mb-4 text-bertu-black">Documenting the Unseen</h3>
+            <p class="text-bertu-black/60 font-sans text-sm">Producing high-impact digital stories that expose social issues and mobilize immediate help from the diaspora and locals.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+ <style>
+
+  /* 1. BLUR REVEAL STYLES */
+
+  .blur-word {
+
+    display: inline-block;
+
+    filter: blur(12px);
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  }
+
+
+  .mission-text.active .blur-word {
+
+    filter: blur(0px);
+
+    opacity: 1;
+
+    transform: translateY(0px);
+
+  }
+
+
+  /* Stagger the blur reveal words */
+
+  .blur-word:nth-child(1) { transition-delay: 0.1s; }
+
+  .blur-word:nth-child(2) { transition-delay: 0.15s; }
+
+  .blur-word:nth-child(3) { transition-delay: 0.2s; }
+
+  .blur-word:nth-child(4) { transition-delay: 0.25s; }
+
+  .blur-word:nth-child(5) { transition-delay: 0.3s; }
+
+  .blur-word:nth-child(6) { transition-delay: 0.35s; }
+
+  .blur-word:nth-child(7) { transition-delay: 0.4s; }
+
+  .blur-word:nth-child(8) { transition-delay: 0.45s; }
+
+  .blur-word:nth-child(9) { transition-delay: 0.5s; }
+
+  .blur-word:nth-child(10) { transition-delay: 0.55s; }
+
+  .blur-word:nth-child(11) { transition-delay: 0.6s; }
+
+  .blur-word:nth-child(12) { transition-delay: 0.65s; }
+
+  .blur-word:nth-child(13) { transition-delay: 0.7s; }
+
+  .blur-word:nth-child(14) { transition-delay: 0.75s; }
+
+  .blur-word:nth-child(15) { transition-delay: 0.8s; }
+
+  .blur-word:nth-child(16) { transition-delay: 0.85s; }
+
+  .blur-word:nth-child(17) { transition-delay: 0.9s; }
+
+  .blur-word:nth-child(18) { transition-delay: 0.95s; }
+
+  .blur-word:nth-child(19) { transition-delay: 1.0s; }
+
+  .blur-word:nth-child(20) { transition-delay: 1.05s; }
+
+
+  /* 2. CARD REVEAL STYLES (Curtain Style) */
+
+  .reveal-card {
+
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+
+  }
+
+
+  .reveal-card.active {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+</style>
+
+
+<script>
+
+  function initWorksAnimations() {
+
+    const observerOptions = {
+
+      threshold: 0.15,
+
+      rootMargin: '0px 0px -50px 0px'
+
+    };
+
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add('active');
+
+        }
+
+      });
+
+    }, observerOptions);
+
+
+    // Observe the mission text
+
+    const missionText = document.querySelector('.mission-text');
+
+    if (missionText) observer.observe(missionText);
+
+
+    // Observe each grid card
+
+    const cards = document.querySelectorAll('.reveal-card');
+
+    cards.forEach((card, index) => {
+
+      // Small delay stagger for cards that appear at the same time
+
+      (card as HTMLElement).style.transitionDelay = `${index * 0.1}s`;
+
+      observer.observe(card);
+
+    });
+
+  }
+
+
+  // Support for View Transitions
+
+  initWorksAnimations();
+
+  document.addEventListener('astro:after-swap', initWorksAnimations);
+
+</script> 

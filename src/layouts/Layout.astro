@@ -1,23 +1,346 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+// src/layouts/Layout.astro
+import { ViewTransitions } from "astro:transitions";
+import "../styles/global.css";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Bertu" />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <title>{title} | Bertu Media</title>
+    <ViewTransitions />
+  </head>
+  <body class="flex flex-col min-h-screen selection:bg-bertu-orange selection:text-white">
+    
+    <div 
+      id="page-curtain" 
+      transition:persist 
+      class="fixed inset-0 z-40 bg-bertu-orange pointer-events-none translate-y-[-100%] transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)]"
+    ></div>
+
+    <div id="donation-popup" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 bg-bertu-black/80 backdrop-blur-sm">
+      <div class="bg-bertu-cream rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative animate-popup">
+        <button id="close-popup" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-bertu-black/5 hover:bg-bertu-orange hover:text-bertu-cream transition-colors flex items-center justify-center z-10">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+
+        <div class="p-8 lg:p-12">
+          <div class="text-center mb-10">
+            <div class="w-20 h-20 bg-bertu-orange/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fa-solid fa-hand-holding-heart text-4xl text-bertu-orange"></i>
+            </div>
+            <h3 class="font-display text-3xl md:text-4xl font-bold text-bertu-black mb-2">Support Bertu Media</h3>
+            <p class="text-bertu-black/60 text-lg">Thank you for your support. Choose a convenient method below.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            
+            <div class="bg-white rounded-2xl p-6 border-2 border-bertu-black/5 hover:border-bertu-orange transition-colors shadow-sm flex flex-col items-center text-center group">
+              
+                <img src="/src/assets/telebirr.png" alt="Telebirr Logo" class="w-40 h-40 object-contain" />
+              
+              <h4 class="font-display font-bold text-2xl text-bertu-black mb-1">Telebirr</h4>
+              <p class="text-bertu-black/60 text-sm mb-6 flex-grow">Use our Merchant Code to send funds directly.</p>
+              
+              <div class="w-full">
+                <p class="text-xs text-bertu-black/50 font-bold uppercase tracking-wider mb-2">Merchant Code</p>
+                <div class="bg-bertu-black/5 px-4 py-3 rounded-xl flex items-center justify-between group/copy hover:bg-bertu-orange/5 transition-colors">
+                  <span class="font-mono font-bold text-lg text-bertu-black tracking-wider">893456</span>
+                  <button class="copy-btn text-bertu-black/40 hover:text-bertu-orange transition-colors p-2" data-copy="893456" title="Copy to clipboard">
+                    <i class="fa-regular fa-copy text-xl"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border-2 border-bertu-black/5 hover:border-bertu-orange transition-colors shadow-sm flex flex-col items-center text-center group">
+              <img src="/src/assets/cbe.png" alt="CBE Logo" class="w-40 h-40 object-contain" />
+              <h4 class="font-display font-bold text-2xl text-bertu-black mb-1">CBE</h4>
+              <p class="text-bertu-black/60 text-sm mb-6 flex-grow">Commercial Bank of Ethiopia Direct Transfer.</p>
+              
+              <div class="w-full">
+                <p class="text-xs text-bertu-black/50 font-bold uppercase tracking-wider mb-2">Account Number</p>
+                <div class="bg-bertu-black/5 px-4 py-3 rounded-xl flex items-center justify-between group/copy hover:bg-bertu-orange/5 transition-colors">
+                  <span class="font-mono font-bold text-lg text-bertu-black tracking-wider">1000123456789</span>
+                  <button class="copy-btn text-bertu-black/40 hover:text-bertu-orange transition-colors p-2" data-copy="1000123456789" title="Copy to clipboard">
+                    <i class="fa-regular fa-copy text-xl"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border-2 border-bertu-black/5 hover:border-bertu-orange transition-colors shadow-sm flex flex-col items-center text-center group">
+              <img src="/src/assets/awash.png" alt="Awash Bank Logo" class="w-40 h-40 object-contain" />
+              <h4 class="font-display font-bold text-2xl text-bertu-black mb-1">Awash Bank</h4>
+              <p class="text-bertu-black/60 text-sm mb-6 flex-grow">Direct transfer to our Awash Bank account.</p>
+              
+              <div class="w-full">
+                <p class="text-xs text-bertu-black/50 font-bold uppercase tracking-wider mb-2">Account Number</p>
+                <div class="bg-bertu-black/5 px-4 py-3 rounded-xl flex items-center justify-between group/copy hover:bg-bertu-orange/5 transition-colors">
+                  <span class="font-mono font-bold text-lg text-bertu-black tracking-wider">0132012345678</span>
+                  <button class="copy-btn text-bertu-black/40 hover:text-bertu-orange transition-colors p-2" data-copy="0132012345678" title="Copy to clipboard">
+                    <i class="fa-regular fa-copy text-xl"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="text-sm text-center text-bertu-black/40 font-medium">
+            Name: <span class="text-bertu-black/70">Bertu Media Foundation</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-bertu-black translate-y-[-100%] transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] flex flex-col p-10 justify-between">
+      <div class="flex justify-between items-center">
+        <img src="/horizontal-logo-white.svg" alt="Bertu Logo" class="text-2xl font-display font-bold tracking-tighter text-bertu-black w-48 h-12 object-contain" />
+        <button id="close-menu" class="text-bertu-cream text-3xl p-2 hover:text-bertu-orange transition-colors">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      
+      <nav class="flex flex-col gap-6">
+        <a href="/AboutUs" class="font-display text-5xl text-bertu-cream hover:text-bertu-orange transition-colors">The Mission</a>
+    <a href="/Stories" class="font-display text-5xl text-bertu-cream hover:text-bertu-orange transition-colors">Stories</a>
+      </nav>
+
+      <div class="border-t border-bertu-cream/10 pt-8">
+        <p class="text-bertu-orange font-bold uppercase tracking-widest text-xs mb-4">Join the movement</p>
+        <div class="flex gap-6 text-bertu-cream text-2xl">
+          <a  class="hover:text-bertu-orange transition-colors"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@bertumedia1" target="_blank" class="hover:text-bertu-orange transition-colors"><i class="fa-brands fa-youtube"></i></a>
+          <a  class="hover:text-bertu-orange transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <header transition:persist class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
+      <nav class="bg-bertu-cream/90 backdrop-blur-xl border border-bertu-black/5 rounded-full px-6 py-3 flex items-center justify-between shadow-2xl shadow-bertu-black/5">
+        <a href="/">
+        <img src="/horizontal-logo.svg" alt="Bertu Logo" class="text-2xl font-display font-bold tracking-tighter text-bertu-black w-48 h-12 object-contain" />
+        </a>
+        <ul class="hidden md:flex gap-8 text-sm font-medium text-bertu-black/80">
+          <li><a href="/AboutUs" class="hover:text-bertu-orange transition-colors">The Mission</a></li>
+          <li><a href="/Stories" class="hover:text-bertu-orange transition-colors">Stories</a></li>
+        </ul>
+
+        <div class="flex items-center gap-3">
+           <button id="language-toggle" class="w-10 h-10 rounded-full border border-bertu-black/10 bg-bertu-cream text-bertu-black font-bold text-sm hover:bg-bertu-orange hover:text-bertu-cream hover:border-bertu-orange transition-all duration-300">
+            <span id="current-lang">EN</span>
+          </button>
+
+          <button id="donate-button" class="group relative overflow-hidden bg-bertu-orange text-bertu-cream px-7 py-2.5 rounded-full font-bold transition-all duration-500 text-sm">
+            <div class="relative z-10 flex items-center justify-center overflow-hidden h-5">
+              <span class="inline-block transition-transform duration-500 group-hover:-translate-y-[150%]">Contribute</span>
+              <span class="absolute flex items-center gap-2 translate-y-[150%] transition-transform duration-500 group-hover:translate-y-0 text-white">
+                Donate <i class="fa-solid fa-arrow-right text-xs"></i>
+              </span>
+            </div>
+            <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
+          </button>
+
+          <button id="open-menu" class="md:hidden bg-bertu-black text-bertu-cream w-10 h-10 rounded-full flex items-center justify-center hover:bg-bertu-orange transition-colors">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <div transition:animate="fade">
+      <main class="flex-grow pt-10">
+        <slot />
+      </main>
+
+      <footer class=" bg-bertu-black text-bertu-cream px-8 py-20 lg:p-24 border-t border-bertu-orange/20">
+        <div class="max-w-7xl mx-auto flex flex-col gap-20">
+          <div class="grid lg:grid-cols-2 gap-20 items-start">
+             <div class="space-y-6">
+                <h2 class="text-bertu-cream text-5xl lg:text-7xl font-display uppercase leading-[0.9] tracking-tighter">Stay<br/><span class="text-bertu-orange">Strong.</span></h2>
+                <p class="max-w-md opacity-70 font-sans text-lg">Harnessing the power of media to strengthen the youth and protect our elders.</p>
+             </div>
+             
+             <div class="grid grid-cols-2 gap-12 pt-4">
+                <div class="space-y-6">
+                  <h4 class="text-bertu-orange font-bold tracking-[0.1em] text-xs uppercase">Navigation</h4>
+                  <ul class="space-y-3 font-sans text-lg opacity-80">
+                    <li><a  class="hover:text-bertu-orange hover:translate-x-1 transition-all inline-block">Campaigns</a></li>
+                    <li><a  class="hover:text-bertu-orange hover:translate-x-1 transition-all inline-block">Newsroom</a></li>
+                    <li><a  class="hover:text-bertu-orange hover:translate-x-1 transition-all inline-block">Youth Lab</a></li>
+                  </ul>
+                </div>
+                <div class="space-y-6">
+                  <h4 class="text-bertu-orange font-bold tracking-[0.1em] text-xs uppercase">Connect</h4>
+                  <ul class="space-y-3 font-sans text-lg opacity-80">
+                    <li><a  class="hover:text-bertu-orange hover:translate-x-1 transition-all inline-block">Instagram</a></li>
+                    <li><a  class="hover:text-bertu-orange hover:translate-x-1 transition-all inline-block">LinkedIn</a></li>
+                    <li><a href="https://www.youtube.com/@bertumedia1" target="_blank" class="hover:text-bertu-orange hover:translate-x-1 transition-all inline-block">YouTube</a></li>
+                  </ul>
+                </div>
+             </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-8 gap-6 text-sm opacity-60">
+            <p>© 2026 Bertu Media</p>
+            <a href="https://helmcreative.com.et" target="_blank" class="hover:text-bertu-orange transition-colors">Designed by Helm Creative</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+<script>
+  // Handle the Curtain Dropdown (Covering the old page)
+  document.addEventListener('astro:before-preparation', (ev) => {
+    const curtain = document.getElementById('page-curtain');
+    if (curtain) {
+      const originalLoader = ev.loader;
+      ev.loader = async function() {
+        curtain.classList.remove('transition-none', 'translate-y-[100%]', 'translate-y-[-100%]');
+        curtain.classList.add('translate-y-0');
+        await new Promise(resolve => setTimeout(resolve, 700));
+        await originalLoader();
+      };
+    }
+  });
+
+  // Handle the Curtain Pullup/Pulldown (Revealing the new page)
+  document.addEventListener('astro:after-swap', () => {
+    const curtain = document.getElementById('page-curtain');
+    if (curtain) {
+      curtain.classList.remove('translate-y-0');
+      curtain.classList.add('translate-y-[100%]');
+      
+      setTimeout(() => {
+        curtain.classList.add('transition-none');
+        curtain.classList.remove('translate-y-[100%]');
+        curtain.classList.add('translate-y-[-100%]');
+        curtain.offsetHeight; // Force a browser reflow
+        curtain.classList.remove('transition-none');
+      }, 700);
+    }
+  });
+
+  // Regular Page Load scripts
+  document.addEventListener('astro:page-load', () => {
+    // Mobile menu functionality
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openBtn = document.getElementById('open-menu');
+    const closeBtn = document.getElementById('close-menu');
+
+    openBtn?.addEventListener('click', () => {
+      mobileMenu?.classList.remove('translate-y-[-100%]');
+    });
+
+    closeBtn?.addEventListener('click', () => {
+      mobileMenu?.classList.add('translate-y-[-100%]');
+    });
+
+    // --- UPDATED DONATION POPUP LOGIC ---
+    // Targets both the ID and any element with the trigger class
+    const donateButtons = document.querySelectorAll('#donate-button, .donate-trigger');
+    const popup = document.getElementById('donation-popup');
+    const closePopup = document.getElementById('close-popup');
+
+    const closePopupFn = () => {
+      popup?.classList.remove('flex');
+      popup?.classList.add('hidden');
+      document.body.style.overflow = ''; 
+    };
+
+    // Loop through all buttons found (Header + Ecosystem section)
+    donateButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        popup?.classList.remove('hidden');
+        popup?.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closePopup?.addEventListener('click', closePopupFn);
+
+    popup?.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        closePopupFn();
+      }
+    });
+    // --- END UPDATED LOGIC ---
+
+    // Copy to Clipboard Functionality
+    const copyBtns = document.querySelectorAll('.copy-btn');
+    copyBtns.forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        const buttonElement = e.currentTarget as HTMLButtonElement;
+        const textToCopy = buttonElement.dataset.copy;
+        const icon = buttonElement.querySelector('i');
+        
+        if (textToCopy && icon) {
+          try {
+            await navigator.clipboard.writeText(textToCopy);
+            icon.className = 'fa-solid fa-check text-green-500 text-xl';
+            buttonElement.classList.add('text-green-500');
+            
+            setTimeout(() => {
+              icon.className = 'fa-regular fa-copy text-xl';
+              buttonElement.classList.remove('text-green-500');
+            }, 2000);
+          } catch (err) {
+            console.error('Failed to copy text: ', err);
+          }
+        }
+      });
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !popup?.classList.contains('hidden')) {
+        closePopupFn();
+      }
+    });
+  });
+</script>
+
+    <style is:global>
+      @keyframes shimmer {
+        100% { transform: translateX(100%); }
+      }
+      
+      @keyframes popup {
+        from {
+          opacity: 0;
+          transform: scale(0.95) translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+      
+      .animate-popup {
+        animation: popup 0.3s ease-out;
+      }
+
+      .animate-shimmer {
+        animation: shimmer 2s infinite;
+      }
+    </style>
+  </body>
+</html>

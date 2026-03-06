@@ -1,0 +1,128 @@
+/* src/styles/global.css */
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Typography: Space Grotesk (Display) & Satoshi (Sans) */
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/SpaceGrotesk-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: 'Satoshi', ui-sans-serif, system-ui;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui;
+  
+  /* The "Bertu" Palette - International Orange Vibe */
+  --color-bertu-orange: #FF5F1F;  /* Primary: High Energy / Strength */
+  --color-bertu-black: #0a0a0a;   /* Neutral: Rich Black */
+  --color-bertu-cream: #f9f7f2;   /* Neutral: Warm White / Paper */
+  --color-bertu-white: #ffffff;
+  
+  /* Typography scale */
+  --text-base: 1.125rem;
+  --text-7xl: 6rem;
+  --text-8xl: 8rem;
+  --text-9xl: 10rem;
+  
+  --leading-tight: 1.05;
+  --leading-relaxed: 1.6;
+}
+
+:root {
+  --orange-primary: #FF5F1F;
+  --royal-black: #0a0a0a;
+  --warm-white: #f9f7f2;
+}
+
+@layer base {
+  html {
+    @apply text-base;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[var(--warm-white)] text-[var(--royal-black)] font-sans antialiased;
+    font-weight: 400;
+  }
+  
+  /* Headlines - Space Grotesk Bold */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold leading-tight tracking-tighter uppercase;
+    color: var(--royal-black);
+  }
+  
+  /* Orange Accent Utility */
+  .text-accent {
+    color: var(--orange-primary);
+  }
+
+  h1 {
+    font-size: clamp(3.5rem, 12vw, 9rem);
+  }
+  
+  h2 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+  }
+
+  p {
+    @apply mb-6 opacity-90;
+    font-weight: 400;
+  }
+
+  strong, b {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  /* Aggressive Hero Typography */
+  .heading-hero {
+    @apply font-display font-bold leading-[0.9] tracking-tighter uppercase;
+    font-size: clamp(3rem, 15vw, 11rem);
+  }
+
+  /* Buttons: International Orange or Rich Black */
+  .btn-primary {
+    @apply bg-[var(--orange-primary)] text-white px-8 py-4 font-bold uppercase tracking-widest transition-all hover:bg-black active:scale-95;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-outline {
+    @apply border-2 border-[var(--royal-black)] px-8 py-4 font-bold uppercase tracking-widest transition-all hover:bg-[var(--royal-black)] hover:text-white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Clean Section Dividers */
+  .section-border {
+    @apply border-t border-bertu-black/10 py-20;
+  }
+}
