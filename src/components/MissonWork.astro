@@ -38,7 +38,7 @@
   <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6 auto-rows-[300px]">
     
     <div class="reveal-card md:col-span-4 lg:col-span-4 row-span-2 group relative overflow-hidden rounded-3xl bg-bertu-black">
-      <img src="./src/assets/medical.jpg" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" alt="Life-Saving Media" />
+      <img src={`${import.meta.env.BASE_URL}/medical.jpg`} class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" alt="Life-Saving Media" />
       <div class="absolute inset-0 bg-gradient-to-t from-bertu-black via-transparent to-transparent p-8 flex flex-col justify-end">
         <span class="text-bertu-orange font-bold text-xs tracking-widest mb-2">Life-Saving Advocacy</span>
         <h3 class="text-bertu-cream text-3xl md:text-4xl mb-4">Medical Fundraising</h3>
@@ -61,7 +61,7 @@
     </div>
 
     <div class="reveal-card md:col-span-2 lg:col-span-2 row-span-1 md:row-span-2 group relative overflow-hidden rounded-3xl">
-      <img src="./src/assets/women.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="Empowerment" />
+      <img src={`${import.meta.env.BASE_URL}/women.png`} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="Empowerment" />
       <div class="absolute inset-0 bg-bertu-black/40 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
       <div class="absolute inset-0 p-8 flex flex-col justify-end">
         <h3 class="text-bertu-cream text-2xl mb-2">Women's Empowerment</h3>

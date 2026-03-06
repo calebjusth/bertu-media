@@ -119,8 +119,8 @@ const { title } = Astro.props;
       </div>
       
       <nav class="flex flex-col gap-6">
-        <a href="/AboutUs" class="font-display text-5xl text-bertu-cream hover:text-bertu-orange transition-colors">The Mission</a>
-    <a href="/Stories" class="font-display text-5xl text-bertu-cream hover:text-bertu-orange transition-colors">Stories</a>
+        <a href={`${import.meta.env.BASE_URL}/AboutUs`} class="font-display text-5xl text-bertu-cream hover:text-bertu-orange transition-colors">The Mission</a>
+    <a href={`${import.meta.env.BASE_URL}/Stories`} class="font-display text-5xl text-bertu-cream hover:text-bertu-orange transition-colors">Stories</a>
       </nav>
 
       <div class="border-t border-bertu-cream/10 pt-8">
@@ -139,8 +139,8 @@ const { title } = Astro.props;
         <img src="./horizontal-logo.svg" alt="Bertu Logo" class="text-2xl font-display font-bold tracking-tighter text-bertu-black w-48 h-12 object-contain" />
         </a>
         <ul class="hidden md:flex gap-8 text-sm font-medium text-bertu-black/80">
-          <li><a href="/AboutUs" class="hover:text-bertu-orange transition-colors">The Mission</a></li>
-          <li><a href="/Stories" class="hover:text-bertu-orange transition-colors">Stories</a></li>
+          <li><a href={`${import.meta.env.BASE_URL}/AboutUs`} class="hover:text-bertu-orange transition-colors">The Mission</a></li>
+          <li><a href={`${import.meta.env.BASE_URL}/Stories`} class="hover:text-bertu-orange transition-colors">Stories</a></li>
         </ul>
 
         <div class="flex items-center gap-3">
