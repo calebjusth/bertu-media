@@ -6,4 +6,8 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
+  site: 'https://calebjusth.github.io',
+  base: '/bertu-media',
+
+
 });
