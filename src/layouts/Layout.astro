@@ -15,10 +15,10 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="shortcut icon" href="./favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Bertu" />
 
 
@@ -53,7 +53,7 @@ const { title } = Astro.props;
             
             <div class="bg-white rounded-2xl p-6 border-2 border-bertu-black/5 hover:border-bertu-orange transition-colors shadow-sm flex flex-col items-center text-center group">
               
-                <img src="./src/assets/telebirr.png" alt="Telebirr Logo" class="w-40 h-40 object-contain" />
+                <img src="/src/assets/telebirr.png" alt="Telebirr Logo" class="w-40 h-40 object-contain" />
               
               <h4 class="font-display font-bold text-2xl text-bertu-black mb-1">Telebirr</h4>
               <p class="text-bertu-black/60 text-sm mb-6 flex-grow">Use our Merchant Code to send funds directly.</p>
@@ -70,7 +70,7 @@ const { title } = Astro.props;
             </div>
 
             <div class="bg-white rounded-2xl p-6 border-2 border-bertu-black/5 hover:border-bertu-orange transition-colors shadow-sm flex flex-col items-center text-center group">
-              <img src="./src/assets/cbe.png" alt="CBE Logo" class="w-40 h-40 object-contain" />
+              <img src="/src/assets/cbe.png" alt="CBE Logo" class="w-40 h-40 object-contain" />
               <h4 class="font-display font-bold text-2xl text-bertu-black mb-1">CBE</h4>
               <p class="text-bertu-black/60 text-sm mb-6 flex-grow">Commercial Bank of Ethiopia Direct Transfer.</p>
               
@@ -86,7 +86,7 @@ const { title } = Astro.props;
             </div>
 
             <div class="bg-white rounded-2xl p-6 border-2 border-bertu-black/5 hover:border-bertu-orange transition-colors shadow-sm flex flex-col items-center text-center group">
-              <img src="./src/assets/awash.png" alt="Awash Bank Logo" class="w-40 h-40 object-contain" />
+              <img src="/src/assets/awash.png" alt="Awash Bank Logo" class="w-40 h-40 object-contain" />
               <h4 class="font-display font-bold text-2xl text-bertu-black mb-1">Awash Bank</h4>
               <p class="text-bertu-black/60 text-sm mb-6 flex-grow">Direct transfer to our Awash Bank account.</p>
               
@@ -112,15 +112,15 @@ const { title } = Astro.props;
 
     <div id="mobile-menu" class="fixed inset-0 z-[100] bg-bertu-black translate-y-[-100%] transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] flex flex-col p-10 justify-between">
       <div class="flex justify-between items-center">
-        <img src="./horizontal-logo-white.svg" alt="Bertu Logo" class="text-2xl font-display font-bold tracking-tighter text-bertu-black w-48 h-12 object-contain" />
+        <img src="/horizontal-logo-white.svg" alt="Bertu Logo" class="text-2xl font-display font-bold tracking-tighter text-bertu-black w-48 h-12 object-contain" />
         <button id="close-menu" class="text-bertu-cream text-3xl p-2 hover:text-bertu-orange transition-colors">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
       
       <nav class="flex flex-col gap-6">
-        <a href={`${import.meta.env.BASE_URL}/AboutUs`} class="font-display text-5xl text-bertu-cream hover:text-bertu-orange transition-colors">The Mission</a>
-    <a href={`${import.meta.env.BASE_URL}/Stories`} class="font-display text-5xl text-bertu-cream hover:text-bertu-orange transition-colors">Stories</a>
+        <a href="/AboutUs" class="font-display text-5xl text-bertu-cream hover:text-bertu-orange transition-colors">The Mission</a>
+    <a href="/Stories" class="font-display text-5xl text-bertu-cream hover:text-bertu-orange transition-colors">Stories</a>
       </nav>
 
       <div class="border-t border-bertu-cream/10 pt-8">
@@ -136,11 +136,11 @@ const { title } = Astro.props;
     <header transition:persist class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
       <nav class="bg-bertu-cream/90 backdrop-blur-xl border border-bertu-black/5 rounded-full px-6 py-3 flex items-center justify-between shadow-2xl shadow-bertu-black/5">
         <a href="/">
-        <img src="./horizontal-logo.svg" alt="Bertu Logo" class="text-2xl font-display font-bold tracking-tighter text-bertu-black w-48 h-12 object-contain" />
+        <img src="/horizontal-logo.svg" alt="Bertu Logo" class="text-2xl font-display font-bold tracking-tighter text-bertu-black w-48 h-12 object-contain" />
         </a>
         <ul class="hidden md:flex gap-8 text-sm font-medium text-bertu-black/80">
-          <li><a href={`${import.meta.env.BASE_URL}/AboutUs`} class="hover:text-bertu-orange transition-colors">The Mission</a></li>
-          <li><a href={`${import.meta.env.BASE_URL}/Stories`} class="hover:text-bertu-orange transition-colors">Stories</a></li>
+          <li><a href="/AboutUs" class="hover:text-bertu-orange transition-colors">The Mission</a></li>
+          <li><a href="/Stories" class="hover:text-bertu-orange transition-colors">Stories</a></li>
         </ul>
 
         <div class="flex items-center gap-3">
